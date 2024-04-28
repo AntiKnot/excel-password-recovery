@@ -7,12 +7,18 @@ from __future__ import print_function
 
 import logging
 import os
+import sys
 import traceback
 import zipfile
 
 from six import BytesIO
-from six.moves import tkinter as tk, tkinter_tkfiledialog, tkinter_messagebox
+from six.moves import tkinter as tk, tkinter_tkfiledialog
 from tools.recovery import xlsx_remove_protections
+
+if sys.version_info.major == 2:
+    from six.moves import tkinter_messagebox
+else:
+    from tkinter import messagebox as tkinter_messagebox
 
 
 class App:
